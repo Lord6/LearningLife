@@ -1,29 +1,16 @@
 body{
 font-family:sans-serif;
-
+color:red;
 }
 
-h1,h2{
-color:gray;
-}
-h1{
-border-bottom:1px olid black;
-}
-p{
-color:maroon;
+h1.T_red{
+color:red;
 
 }
-em{
-font-family:serif;
-}
-p.greentea{
+h2.o_green{
 color:green;
-}
-p.lightbluetea{
 
-color:lightblue;
 }
-p.bluetea{
-
+h2.c_blue{
 color:blue;
 }
