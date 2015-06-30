@@ -1,0 +1,11 @@
+#gar{
+border-color:black;
+border-width:1px;
+border-style: solid;
+background-color: #a7cece;
+padding: 15px;
+margin:30px;
+}
+body{
+ font-family:"comic sans","apple chancery",cursive;
+}
