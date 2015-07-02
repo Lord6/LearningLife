@@ -1,0 +1,32 @@
+#august {
+border-color:black;
+border-width:1px;
+border-style: solid;
+background-color: #a7cece;
+padding: 15px;
+margin:30px;
+}
+#august h2{
+color:red;
+}
+#july {
+border-color:green;
+border-width:1px;
+border-style: solid;
+background-color: #a74444;
+padding: 15px;
+margin:30px;
+}
+#testsp{
+
+color:blue;
+}
+a:link{
+color:red;
+}
+a:visited{
+color:blue;
+}
+a:hover{
+color:green;
+}
