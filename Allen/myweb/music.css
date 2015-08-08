@@ -1,0 +1,42 @@
+header{
+background-color:#FFFF77;
+
+}
+footer{
+background-color:#FFFF77;
+height:50px;
+margin: 0px 0px 10px px;
+}
+ul{
+background-color:#888888;
+padding: 5px 0px 5px 0px;
+margin: 10px 0px 5px 0px;
+}
+ul  li{
+display:inline;
+padding: 5px 5px 5px 5px;
+
+}
+#upload{
+float:right;
+margin:15px;
+}
+#tableall{
+display:table;
+width:50%;
+margin:45px 15px 15px 280px;
+border-spacing:5px;
+}
+.tablerow{
+display:table-row;
+}
+.tablecell1{
+display:table-cell;
+background-color:#FFEE99;
+width:50%;
+
+}
+.tablecell2{
+display:table-cell;
+background-color:#FFDD55;
+}

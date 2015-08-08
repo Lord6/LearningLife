@@ -1,0 +1,49 @@
+header{
+background-color:#FFFF77;
+
+}
+footer{
+background-color:#FFFF77;
+height:50px;
+margin: 0px 0px 10px px;
+}
+ul{
+background-color:#888888;
+padding: 5px 0px 5px 0px;
+margin: 10px 0px 5px 0px;
+}
+ul  li{
+display:inline;
+padding: 5px 5px 5px 5px;
+
+}
+#sixp{
+float:left;
+}
+p{
+font-size:23px;
+}
+#tableall{
+display:table;
+border-spacing:10px;
+
+}
+#tablerow{
+display:table-row;
+}
+#appply{
+display:table-cell;
+
+}
+#Discuss{
+display:table-cell;
+}
+#Schedule{
+display:table-cell;
+}
+#history{
+display:table-cell;
+}
+#main{
+padding:15px 15px 15px 150px;
+}
