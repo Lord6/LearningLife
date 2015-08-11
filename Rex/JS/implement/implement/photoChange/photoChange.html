@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="utf-8">
+<body oncontextmenu="window.event.returnValue=false;"　>
+<center>
+<img id= "imageControl" src="images/1.jpg" height="500" width="500" >
+<p>
+<script src="buttonControler.js"></script>
+<script>
+currentIndex = 1;
+photoNumber=10;
+document.write("<input type=image src='on.jpg' id=1 onclick=buttonControl(this.id) style='margin:10px'; height='30' width='30'>");
+for(i=2;i<=photoNumber;i++){
+	document.write("<input type=image src='close.jpg' id="+i+" onclick=buttonControl(this.id) style='margin:10px'; height='30' width='30'>");
+}
+setInterval (cyclePlay,2000);
+imageControl.onmousedown= checkButton;
+
+
+</script>
+<input type=image name=past  src="left.jpg" onclick="check(true)"  style=margin:10px; height="30" width="30">
+<input type=image name=next  src="right.jpg" onclick="check(false)" style=margin:10px; height="30" width="30">
+</p>
+<p>
+<h1 id="Msg">This is No.1 Image</h1>
+<h2>每隔三秒會輪撥圖片</h2>
+<h2>關閉右鍵功能</h2>
+<h2>基本功能介紹：點擊滑鼠左鍵-->下一張 ,   右鍵-->上一張</h2>
+<h2>控制項動態產生及事件處理，透過id取得點擊資訊 , 基本的防呆處理</h2>
+<h2>可改進地方：透過server端程式動態取得檔案個數 ,以及不用 all reset button</h2>
+<h2>written by ReYuan </h2>
+
+
+</p>
+</center>
+</body>
+</head>
+</html>
+

@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>
+<a href="javascript:alert('這是直接在href寫的警告視窗')">這是直接在href寫的警告視窗 </a>
+</p>
+<p>
+<a href="" onclick="alert('這是寫在onclick的警告視窗')">這是寫在onclick的警告視窗 </a>
+</p>
+<p>
+<a href="http://www.nthu.edu.tw" onclick="return(confirm('go to NTU'))">這是確認視窗</a>
+</p>
+<script>
+function go(){
+	goLink=prompt('請輸入連結');
+	link.href=goLink;
+</script>
+
+
+<p>
+<a id="link" href="" onclick="go()">這是輸入視窗</a>
+
+</p>
+
+
+</body>
+
+
+</html>

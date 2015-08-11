@@ -1,0 +1,43 @@
+<html>
+<body>
+<h1> 請輸入您的帳號密碼，帳號為您的電話，格式為09xx-xxxxxx，密碼為4碼，第一碼必須為英文，後三碼為數字。</h1>
+<form>
+<pre>
+帳號  <input id="account" type=text />
+
+
+密碼  <input id="password" type=text/>
+</pre>
+
+<input type=button value="送出" onclick="checkInformation()"/>
+<input type="reset" value="重新輸入">
+
+</form>
+<script>
+function checkInformation(){
+	reAccount = /^09[0-9]{2}-[0-9]{6}$/;
+	rePassword = /^[A-Za-z]{1}[0-9]{3}$/;
+	if(!(reAccount.test(account.value) &&rePassword.test(password.value))){
+		alert("格式錯誤");
+	}
+	else{
+		document.write("登入成功");	
+	
+	}
+	
+	
+	
+}
+
+</script>
+
+<h2> reset按鈕為清除表單，控制項必須在表單內。 </h2> <br/>
+<h2> 基本的正規表示法判斷 </h2>
+
+
+</body>
+
+
+
+
+</html>

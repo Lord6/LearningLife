@@ -1,0 +1,50 @@
+<html>
+<body>
+<h1>table , insertRow , inserCell , 動態產生99乘法表</h1>
+<table id="ninenine" border=1> </table>
+<pre>
+
+開頭   <select id="begin" onchange="produceNiNe()"></select>
+
+
+
+結尾   <select id="end" onchange="produceNiNe()"></select>
+</pre>
+
+  
+
+<script>
+for(i=1;i<=9;i++){
+	option = new Option(i,i);		
+	begin.add(option);
+}
+for(i=1;i<=9;i++){
+	option = new Option(i,i);		
+	end.add(option);
+}
+
+
+function produceNiNe(){
+	ninenine.innerHTML="";
+
+	for (i=1;i<=begin.value;i++){
+		row= ninenine.insertRow(i-1);
+		for(j=1;j<=end.value;j++){
+			cell=row.insertCell(j-1);
+			cell.innerHTML = i+"*"+j+"="+(i*j);
+		}
+	
+	}
+
+
+}
+
+
+	
+</script>
+
+
+
+
+</body>
+</html>

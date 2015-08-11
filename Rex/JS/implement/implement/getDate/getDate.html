@@ -1,0 +1,68 @@
+<html>
+<body>
+<select id="year" onchange="checkDays()"> 	</select>
+<select id="month" onchange="checkDays()"> 	</select>
+<select id="day" onchange="checkDays()"> 	</select>
+<h2 id="showMsg"></h2>
+<h2 id="showSelectedMsg"></h2>
+<h1 id="point"> </h1>
+<script>
+function doReset(){
+	getMonthDays = new Date(year.value,month.value,0).getDate();
+	length = day.length;
+	for(i=1;i<=length;i++){  //reset
+		day.options[0]=null;
+	}
+	for(i=1;i<=getMonthDays;i++){ 
+		option = new Option(i,i);
+		day.add(option);
+	}
+	
+}
+
+
+function checkDays(){
+	getMonthDays = new Date(year.value,month.value,0).getDate();
+	eventTriggerID = event.target.id; //取得事件驅動
+	if(eventTriggerID!="day") doReset();
+	
+	showSelectedMsg.innerHTML = "你選取的是西元"+year.value+"年"+month.value+"月"+day.value+"號"+"，該月有"+getMonthDays+"天";
+	alert( "你選取的是西元"+year.value+"年"+month.value+"月"+day.value+"號"+"，該月有"+getMonthDays+"天");
+	
+	
+	
+}
+beginYear = 1900;
+date = new Date();
+todayYear =  date.getFullYear();
+todayMonth = date.getMonth()+1; //bcz index 0-11
+todayDay = date.getDate();
+
+for (i=beginYear;i<=todayYear;i++){
+	option = new Option(i,i);
+	year.add(option);
+}
+year.selectedIndex = year.length-1; //set DefaultIndex
+for (i=1;i<=12;i++){
+	option = new Option(i,i)
+	month.add(option);
+}
+
+getMonthDays = new Date(todayYear,todayMonth,0).getDate();
+
+for (i=1;i<=getMonthDays;i++){
+	option = new Option(i,i)
+	day.add(option);
+}
+
+year.selectedIndex = year.length-1;
+month.selectedIndex = todayMonth-1;
+day.selectedIndex = todayDay-1;
+
+showMsg.innerHTML = "今天是西元"+todayYear+"年"+todayMonth+"月"+todayDay+"號";
+point.innerHTML = "預設選取該天日期，動態產生年月日，並自動判斷該月有幾天，透過event取得驅動物件";
+</script>
+
+
+</body>
+</html>

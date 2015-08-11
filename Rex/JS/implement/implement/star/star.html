@@ -1,0 +1,47 @@
+<html>
+<head >
+<meta charset="UTF-8">
+<body>
+<h2 id="showMsg"> </h2>
+<script>
+starCount = 5;
+for(i=1;i<=starCount;i++){
+	imageBtn = document.createElement("input");
+	imageBtn.id= i;
+	imageBtn.width=50;
+	imageBtn.type = "image";
+	imageBtn.src = "darkStar.jpg";
+	imageBtn.onclick = function(){showStarCount();};
+	document.body.appendChild(imageBtn);
+}
+function reSet(){
+	for(i=1;i<=starCount;i++){
+		document.getElementById(i).src="darkStar.jpg";
+	}
+
+}
+
+function showStarCount(){
+	reSet();
+	getId = event.target.id;
+	
+	
+	for(i=1;i<=getId;i++){
+		document.getElementById(i).src="star.jpg";
+	}
+	
+	showMsg.innerHTML = "您的評價為"+getId+"顆星";
+}
+
+
+</script>
+
+<h2> 點選該星星，顯示其評價</h2>
+<h2> ‧透過createElement動態建立物件，接著藉由此物鍵動態設定屬性，然後append到body</h2>
+<h2>‧onclick事件比較特殊，需透過function直接設定，不能直接寫function名稱</h2>
+<h2>‧了解直接使用id與getElementById的使用時機，直接使用id必須為英文，較不彈性，透過getElemetByID，可對於一些索引處理較簡潔，視時機而用</h2>
+
+</body>
+</head>
+</html>
+

@@ -1,0 +1,35 @@
+<html>
+<body>
+<script>
+function checkButton(){
+	buttonKey = event.button;	
+	switch (buttonKey){
+		case 0:
+			showMsg.innerHTML="你按左鍵";
+			break;
+		case 1:
+			showMsg.innerHTML="你按中鍵";
+			break;
+		case 2:
+			showMsg.innerHTML="你按右鍵";	
+			break;
+		default:
+			showMsg.innerHTML="unknown";	
+			break;
+	}
+}
+
+document.onmousedown=checkButton;
+
+
+</script>
+<p id="showMsg"></p>
+<input type=button value="check button"/>
+</body>
+
+
+
+
+
+</html>
+
