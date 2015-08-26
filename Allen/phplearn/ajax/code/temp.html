@@ -1,0 +1,147 @@
+
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>nba person</title>
+<link type="text/css" rel="stylesheet" href="person.css"/>
+<script>
+window.onload=start;
+var xmlhttp=null;
+var person_names=[];
+var person_nature=[];
+var person_skill=[];
+var person_power=[];
+
+function start(){
+	xmlhttp=createXMLHttpRequest();
+	document.getElementById("search").value="";
+	document.getElementById("search").focus();
+	
+	document.getElementById("search").onkeyup=popNames;
+	document.getElementById("popup").innerHTML="";
+	document.getElementById("popup").style.visibility="hidden";
+	if (xmlhttp){
+		xmlhttp.onreadystatechange=setFields;
+		try{
+			
+			xmlhttp.open("GET","http://localhost/ajaxtest/case2.xml",true);
+			xmlhttp.send(null);
+		}
+		catch(e){
+			alert(e);
+		}
+		
+	}
+}
+
+//**************建立XMLttpRequest
+function createXMLHttpRequest(){
+	var xmlhttp=null;
+	try{
+		xmlhttp=new XMLHttpRequest();
+	}
+	catch(e){
+		try{xmlhttp =new ActiveXObject("Microsoft.XMLHTTP");}
+		catch(e){}
+	}
+	
+	if(!xmlhttp)
+		alert("CANT CREATE");
+	return xmlhttp;
+}
+function setFields(){
+	if (xmlhttp.readyState==4){
+		if(xmlhttp.staus==200){
+			if(xmlhttp.responseXML){
+				var persons=xmlhttp.responseXML.getElementsByTagName("person");
+				
+				for(var i=0;i<persons.length;i++){
+					person_names[i]=persons[i].getElementsByTagName("name")[0].childNodes[0];
+					person_nature[i]=persons[i].getElementsByTagName("nature")[0].childNodes[0];
+				    person_skill[i]=persons[i].getElementsByTagName("skill")[0].childNodes[0];
+					person_power[i]=persons[i].getElementsByTagName("power")[0].childNodes[0];	
+				}			
+			}
+			
+		}
+		else
+	   {
+		  alert(xmlhttp.responseXML); 
+	   }
+	}
+	
+}
+
+//********顯示person名稱的div
+function popNames(){
+	if (person_names.length==0)
+		return;
+	var search_name=document.getElementById("search").value;
+	if(search_name!=""){
+		document.getElementById("popup").innerHTML="";
+		document.getElementById("popup").style.visibility="hidden";
+		
+		for(var i=0;i<person_names.length;i++){
+			var person_name=person_names[i].nodeValue;
+			if(person_name.toLowerCase.indexOf(search_name.toLowerCase())==0){
+				var popupDiv=document.createElement("div");
+				popupDiv.innerHTML=person_name;
+				popupDiv.onclick=selectName;
+				document.getElementById("popup").appendChild(popupDiv);
+				
+			}
+			
+			var person_count=document.getElementById("popup").childNodes.length;
+			if(person_count>0){
+				document.getElementById("popup").style.visibility="visibe";
+				if (person_count>11)
+					document.getElementById("popup").style.height="300px";
+				   else
+					   document.getElementById("popup").style.height="auto";
+				
+			}
+		}
+	}
+	
+	
+}
+//***********使用滑鼠點相關字詞
+function selectName(event){
+	var select_element=(event)?event.target:window.event.srcElement;
+	document.getElementById("search").value=select_element.innerHTML;
+	showPerson(select_element.innerHTML);
+	
+}
+//************在欄位顯示資料
+function showPerson(select_element){
+	document.getElementById("popup").innerHTML="";
+	document.getElementById("popup").style.visibility="hidden";
+	document.getElementById("nature").innerHTML="";
+	document.getElementById("skill").innerHTML="";
+	document.getElementById("power").innerHTML="";
+	
+	for(var i=0;i<person_names.length;i++){
+		if(select_element==person_names[i].nodeValue){
+			if(person_nature!=null)
+				document.getElementById("nature").innerHTML=person_nature[i].nodeValue;
+			if(person_skill!=null)
+				document.getElementById("skill").innerHTML=person_skill[i].nodeValue;
+			if(person_power!=null)
+				document.getElementById("power").innerHTML=person_power[i].nodeValue;
+				
+			break;
+		}
+		
+	}
+}
+</script>
+</head>
+<body>
+<div>
+<div><input type="text" id="search" size="30"/></div>
+<div id="popup"></div>
+<div >
+natrue:<label id="natrue"></label> skill:<label id="skill"></label> power:<label id="power"></label>
+</div>
+</body>
+</html>

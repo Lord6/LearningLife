@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Persons>
+<Persons>
+<person>
+<name>Gill</name>
+<nature>GOOD</nature>
+<skill>SHOOT</skill>
+<power>90</power>
+<knowledge>80</knowledge>
+</person>
+<person>
+<name>GIBSON</name>
+<nature>GOOD</nature>
+<skill>three shoot</skill>
+<power>90</power>
+<knowledge>50</knowledge>
+</person>
+<person>
+<name>GN</name>
+<nature>BAD</nature>
+<skill>three shoot</skill>
+<power>60</power>
+<knowledge>80</knowledge>
+</person>
+<person>
+<name>ANDERSON</name>
+<nature>GOOD</nature>
+<skill>three shoot</skill>
+<power>100</power>
+<knowledge>50</knowledge>
+</person>
+<person>
+<name>ALEW</name>
+<nature>GOOD</nature>
+<skill> shoot</skill>
+<power>80</power>
+<knowledge>50</knowledge>
+</person>
+</Persons>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Students [
+<!ELEMENT Student (id , number , name , sex , date)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT sex (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ENTITY date "2015-08-18">
+<!ATTLIST name name CDATA #IMPLIED>
+<!ATTLIST name zone CDATA #IMPLIED>
+]>
+<Students>
+	<Student>
+		<id>1</id>
+		<number>1</number>
+		<name name="test" zone="11">mary</name>
+		<sex>F</sex>
+		<date>&date;</date>
+	</Student>
+	
+	
+<Student><id>4</id><number>4</number><name>hill</name><sex>F</sex><date>&date;</date></Student><Student><id>4</id><number>4</number><name>hill</name><sex>F</sex><date>&date;</date></Student></Students>

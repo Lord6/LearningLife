@@ -1,0 +1,129 @@
+<html>
+<head>
+<script>
+var xmlhttp=null;
+var person_names=[];
+var person_nature=[];
+var person_skill=[];
+var person_power=[];
+function data(){
+	document.getElementById("search").value="";
+	document.getElementById("search").focus();
+	document.getElementById("search").onkeyup=popnames;
+
+
+var xmlhttp = new XMLHttpRequest();
+     if (xmlhttp){
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {				 
+						var person=xmlhttp.responseXML.getElementsByTagName("person");
+						for (i=0;i<person.length;i++) {
+						//document.getElementById("popup").innerHTML +=person[i].firstChild.nodeValue;
+						person_names[i]=person[i].getElementsByTagName("name")[0].childNodes[0].nodeValue; 
+						person_nature[i]=person[i].getElementsByTagName("natrue")[0].childNodes[0].nodeValue; 
+						person_skill[i]=person[i].getElementsByTagName("skill")[0].childNodes[0].nodeValue; 
+						person_power[i]=person[i].getElementsByTagName("power")[0].childNodes[0].nodeValue; 
+				//document.getElementById("popup").innerHTML +=
+                }
+			/*test是否陣列有存直
+			for (i=0;i<person.length;i++) {
+			
+			document.getElementById("popup").innerHTML +=person_names[i];
+			
+			}
+			*/
+            }
+			
+        }
+	 try{
+	 
+			xmlhttp.open("GET","http://localhost/ajaxtest/case2.xml",true);
+			//xmlhttp.overrideMimeType("text/xml");
+
+			xmlhttp.send(null);
+	 
+	 }
+	 catch(e){
+	 
+	 alert(e);
+	 }
+	}
+       
+
+}
+
+
+
+function popnames(){
+	if(person_names.length==0)
+	return;
+	var search_name=document.getElementById("search").value;
+	if(search_name!=""){
+		document.getElementById("popup").innerHTML="";
+		document.getElementById("popup").style.visibility="hidden";
+
+	for(var i=0;i<person_names.length;i++){
+		if(person_names[i].toLowerCase().indexOf(search_name.toLowerCase())==0)
+		{
+           var popupDiv=document.createElement("div");
+		   popupDiv.innerHTML=person_names[i];
+		   popupDiv.onclick=selectnames;
+		   document.getElementById("popup").appendChild(popupDiv);
+
+		}
+		
+ 
+    }
+	var count_found=document.getElementById("popup").childNodes.length;
+	if(count_found>0){
+		document.getElementById("popup").style.visibility="visible";
+	    if(count_found>11)
+          	  document.getElementById("popup").style.height="300px";
+		else
+			  document.getElementById("popup").style.height="auto";
+	}
+
+
+  }
+
+}
+function selectnames(event){
+	var select_element=(event)?event.target:window.event.srcElement;
+	document.getElementById("search").value=select_element.innerHTML;
+	//showPerson(select_element.innerHTML);
+	document.getElementById("popup").innerHTML="";
+	document.getElementById("popup").style.visibility="hidden";
+	document.getElementById("natrue").innerHTML="";
+	document.getElementById("skill").innerHTML="";
+	document.getElementById("power").innerHTML="";
+	for(var i=0;i<person_names.length;i++){
+		if(select_element.innerHTML==person_names[i]){
+			if(person_nature!=null)
+				document.getElementById("natrue").innerHTML=person_nature[i];
+			if(person_skill!=null)
+				document.getElementById("skill").innerHTML=person_skill[i];
+			if(person_power!=null)
+				document.getElementById("power").innerHTML=person_power[i].;
+				
+			break;
+		}
+		
+	}
+}
+/*function showPerson(str){
+
+
+
+
+}*/
+
+</script>
+</head>
+<body onload=data();>
+<div>
+<div><input type="text" id="search" size="30"/></div>
+<div id="popup"></div>
+natrue:<label id="natrue"></label> skill:<label id="skill"></label> power:<label id="power"></label>
+</div>
+</body>
+</html>

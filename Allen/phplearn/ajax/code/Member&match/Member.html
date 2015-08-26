@@ -1,0 +1,31 @@
+<html>
+<head>
+<script>
+function showHint(str) {
+var account= document.getElementById("account").value;
+    if (str.length == 0) { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "match.php?a=" + account+"& p="+str, true);
+        xmlhttp.send();
+    }
+}
+</script>
+</head>
+<body>
+
+<p><b>input the account</b></p>
+<form> 
+account: <input type="text" id="account">
+password: <input type="text" onkeyup="showHint(this.value)">
+</form>
+<p>success(y/n): <span id="txtHint"></span></p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Persons>
+<Persons>
+<person>
+<name>Gill</name>
+<natrue>Good</natrue>
+<skill>2POINT</skill>
+<power>80</power>
+<number>1</number>
+</person>
+<person>
+<name>GOBAL</name>
+<natrue>Nogood</natrue>
+<skill>3POINT</skill>
+<power>100</power>
+<number>2</number>
+</person>
+<person>
+<name>AILE</name>
+<natrue>G</natrue>
+<skill>3POINT</skill>
+<power>75</power>
+<number>3</number>
+</person>
+<person>
+<name>AI</name>
+<natrue>N</natrue>
+<skill>3POINT</skill>
+<power>70</power>
+<number>4</number>
+</person>
+<person><name>Grean</name><natrue>G</natrue><skill>2point</skill><power>45</power><number>5</number></person></Persons>
