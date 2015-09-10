@@ -1,0 +1,51 @@
+<html xmlns:spry="http:tw.yahoo.com">
+<head>
+<script src="Spry-master\Spry-master\includes\SpryData.js"></script>
+<script>
+function myCallBack(req){
+   
+	var count=req.xhRequest.responseText;
+	alert(count);
+	if(count>0)
+	{
+		alert(req.userData.username+":the account already exist"+req.stData);
+	}
+
+    else{
+		
+		alert(req.userData.username+":the account can use"+req.stData);
+	
+	}
+}
+
+function checkUsernameExist(username){
+	var objUserData= new Object;
+	objUserData.username=username;
+	//get post方法都是在使用URL傳值 userData可將自定義的物件傳到mycallback	
+	var req=Spry.Utils.loadURL("get","M_DB.php?username="+username,false,myCallBack,{userData: objUserData,stData:"xxx"});
+
+
+}
+function CheckFields(){
+	var value=document.getElementById("username").value;
+	if(value==""){
+		alert("Please enter the account");
+		return false;
+	}
+	else{
+	
+		checkUsernameExist(value);
+	}
+	return true;
+}
+
+
+</script>
+</head>
+<body>
+<form method="GET">
+	<span>Account:</span><input name="username" type="text" id="username" size="20"/>
+	<input type="submit" value="enter" onclick="return CheckFields();"/>
+</form>
+</body>
+</html>

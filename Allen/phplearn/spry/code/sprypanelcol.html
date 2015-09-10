@@ -1,0 +1,47 @@
+<html xmlns:spry="http:tw.yahoo.com">
+<head>
+<link href="Spry-master\Spry-master\widgets\collapsiblepanel\SpryCollapsiblePanel.css" rel="stylesheet" type="text/css">
+<script src="Spry-master\Spry-master\widgets\collapsiblepanel\SpryCollapsiblePanel.js"></script>
+<script src="Spry-master\Spry-master\includes_packed\xpath.js"></script>
+<script src="Spry-master\Spry-master\includes_packed\SpryData.js"></script>
+<script>
+var ds =new Spry.Data.XMLDataSet("person.xml","Persons/person",{useCache:false});
+
+</script>
+</head>
+<body>
+<div spry:region="ds">
+	<select spry:repeatchildren="ds" onchange="ds.setCurrentRowNumber(this.selectedIndex);">
+		<option>{name}</option>
+	</select>
+</div>
+<br/>
+	<div id="collaps1" class="CollapsiblePanel">
+		<div class="CollapsiblePanelTab" tabindex="0">name</div>
+		<div class="CollapsiblePanelContent" spry:detailregion="ds">{name}</div>
+	</div>
+		<div id="collaps2" class="CollapsiblePanel">
+		<div class="CollapsiblePanelTab" tabindex="0">nature</div>
+		<div class="CollapsiblePanelContent" spry:detailregion="ds">{nature}</div>
+	</div>
+		<div id="collaps3" class="CollapsiblePanel">
+		<div class="CollapsiblePanelTab" tabindex="0">skill</div>
+		<div class="CollapsiblePanelContent" spry:detailregion="ds">{skill}</div>
+	</div>
+		<div id="collaps4" class="CollapsiblePanel">
+		<div class="CollapsiblePanelTab" tabindex="0">power</div>
+		<div class="CollapsiblePanelContent" spry:detailregion="ds">{power}</div>
+	</div>
+		<div id="collaps5" class="CollapsiblePanel">
+		<div class="CollapsiblePanelTab" tabindex="0">knowledge</div>
+		<div class="CollapsiblePanelContent" spry:detailregion="ds">{knowledge}</div>
+	</div>
+<script>
+ var col1=new Spry.Widget.CollapsiblePanel("collaps1");
+ var col2=new Spry.Widget.CollapsiblePanel("collaps2");
+ var col3=new Spry.Widget.CollapsiblePanel("collaps3");
+ var col4=new Spry.Widget.CollapsiblePanel("collaps4");
+ var col5=new Spry.Widget.CollapsiblePanel("collaps5");
+</script>
+</body>
+</html>

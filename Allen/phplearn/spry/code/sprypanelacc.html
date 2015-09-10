@@ -1,0 +1,49 @@
+<html xmlns:spry="http:tw.yahoo.com">
+<head>
+<link href="Spry-master\Spry-master\widgets\accordion\SpryAccordion.css" rel="stylesheet" type="text/css">
+<script src="Spry-master\Spry-master\widgets\accordion\SpryAccordion.js"></script>
+<script src="Spry-master\Spry-master\includes_packed\xpath.js"></script>
+<script src="Spry-master\Spry-master\includes_packed\SpryData.js"></script>
+<script>
+var ds =new Spry.Data.XMLDataSet("person.xml","Persons/person",{useCache:false});
+function Showmessage(text){
+	alert('output:'+text);
+
+
+}
+</script>
+</head>
+<body>
+<div spry:region="ds">
+	<select spry:repeatchildren="ds" onchange="ds.setCurrentRowNumber(this.selectedIndex);">
+		<option>{name}</option>
+	</select>
+</div>
+<br/>
+<div id="accord" class="Accordion" tabindex="0">
+    <div class="AccordionPanel">
+		<div class="AccordionPanelTab">name</div>
+		<div class="AccordionPanelContent" spry:detailregion="ds">{name}</div>
+	</div>
+	<div class="AccordionPanel">
+		<div class="AccordionPanelTab">nature</div>
+		<div class="AccordionPanelContent" spry:detailregion="ds">{nature}</div>
+	</div>
+	<div class="AccordionPanel">
+		<div class="AccordionPanelTab">skill</div>
+		<div class="AccordionPanelContent" spry:detailregion="ds">{skill}</div>
+	</div>
+	<div class="AccordionPanel">
+		<div class="AccordionPanelTab">power</div>
+		<div class="AccordionPanelContent" spry:detailregion="ds">{power}</div>
+	</div>
+	<div class="AccordionPanel">
+		<div class="AccordionPanelTab">knowledge</div>
+		<div class="AccordionPanelContent" spry:detailregion="ds">{knowledge}</div>
+	</div>
+</div>
+<script>
+ var accord=new Spry.Widget.Accordion("accord");
+</script>
+</body>
+</html>
