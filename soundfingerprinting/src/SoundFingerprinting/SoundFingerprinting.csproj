@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56EB1986-589C-4DA9-B961-5833BB4A7816}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SoundFingerprinting</RootNamespace>
+    <AssemblyName>SoundFingerprinting</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=2.6.1.30, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MathNet.Numerics.2.6.1\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics.IO">
+      <HintPath>..\packages\MathNet.Numerics.2.6.1\lib\net40\MathNet.Numerics.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\IUsingFingerprintServices.cs" />
+    <Compile Include="Command\IUsingQueryServices.cs" />
+    <Compile Include="Configuration\CustomHashingConfig.cs" />
+    <Compile Include="Configuration\CustomSpectrogramConfig.cs" />
+    <Compile Include="Configuration\DefaultHashingConfig.cs" />
+    <Compile Include="Configuration\DefaultSpectrogramConfig.cs" />
+    <Compile Include="Configuration\FrequencyRange.cs" />
+    <Compile Include="Configuration\HashingConfig.cs" />
+    <Compile Include="Configuration\SpectrogramConfig.cs" />
+    <Compile Include="DAO\IFingerprintDao.cs" />
+    <Compile Include="DAO\ISpectralImageDao.cs" />
+    <Compile Include="DAO\Data\IgnoreBindingAttribute.cs" />
+    <Compile Include="DAO\Data\SpectralImageData.cs" />
+    <Compile Include="Data\Fingerprint.cs" />
+    <Compile Include="Data\SpectralImage.cs" />
+    <Compile Include="Infrastructure\SoundFingerprintingModuleLoader.cs" />
+    <Compile Include="InMemory\InMemoryModelService.cs" />
+    <Compile Include="InMemory\IRAMStorage.cs" />
+    <Compile Include="InMemory\FingerprintDao.cs" />
+    <Compile Include="InMemory\HashBinDao.cs" />
+    <Compile Include="InMemory\RAMStorage.cs" />
+    <Compile Include="InMemory\SpectralImageDao.cs" />
+    <Compile Include="InMemory\SubFingerprintDao.cs" />
+    <Compile Include="InMemory\TrackDao.cs" />
+    <Compile Include="DAO\IHashBinDao.cs" />
+    <Compile Include="DAO\ISubFingerprintDao.cs" />
+    <Compile Include="DAO\ITrackDao.cs" />
+    <Compile Include="DAO\Data\FingerprintData.cs" />
+    <Compile Include="Data\HashedFingerprint.cs" />
+    <Compile Include="DAO\IModelReference.cs" />
+    <Compile Include="DAO\ModelReference.cs" />
+    <Compile Include="DAO\Data\SubFingerprintData.cs" />
+    <Compile Include="DAO\Data\TrackData.cs" />
+    <Compile Include="FFT\FFTW\FFTWService.cs" />
+    <Compile Include="FFT\FFTW\FFTWService64.cs" />
+    <Compile Include="FFT\FFTW\X64\FFTWNativeMethods.cs" />
+    <Compile Include="FFT\FFTW\X64\FFTWFNativeMethods.cs" />
+    <Compile Include="FFT\ILogUtility.cs" />
+    <Compile Include="FFT\LogUtility.cs" />
+    <Compile Include="LCS\AudioSequencesAnalyzer.cs" />
+    <Compile Include="LCS\IAudioSequencesAnalyzer.cs" />
+    <Compile Include="LSH\BoundedLocalitySensitiveHashingAlgorithm.cs" />
+    <Compile Include="Math\ISimilarityUtility.cs" />
+    <Compile Include="Math\MathUtility.cs" />
+    <Compile Include="MinHash\AgressiveSelector.cs" />
+    <Compile Include="MinHash\ConservativeSelector.cs" />
+    <Compile Include="MinHash\DefaultPermutations.cs" />
+    <Compile Include="MinHash\Hash.cs" />
+    <Compile Include="MinHash\IMinMutualSelector.cs" />
+    <Compile Include="MinHash\IPermutationGeneratorService.cs" />
+    <Compile Include="MinHash\MinMutualSelector.cs" />
+    <Compile Include="MinHash\PermutationGeneratorService.cs" />
+    <Compile Include="MinHash\SummedAcrossSelector.cs" />
+    <Compile Include="Query\ResultEntry.cs" />
+    <Compile Include="Query\SequenceInfo.cs" />
+    <Compile Include="Strides\IncrementalRandomStride.cs" />
+    <Compile Include="Strides\IncrementalStaticStride.cs" />
+    <Compile Include="Strides\IStride.cs" />
+    <Compile Include="Strides\RandomStride.cs" />
+    <Compile Include="Strides\StaticStride.cs" />
+    <Compile Include="Strides\StrideType.cs" />
+    <Compile Include="IModelService.cs" />
+    <Compile Include="ModelService.cs" />
+    <Compile Include="LCS\SubFingerprintSequenceComparer.cs" />
+    <Compile Include="Utils\AbsComparator.cs" />
+    <Compile Include="Configuration\CustomFingerprintConfiguration.cs" />
+    <Compile Include="Configuration\DefaultFingerprintConfiguration.cs" />
+    <Compile Include="FFT\FFTW\CachedFFTWService.cs" />
+    <Compile Include="FFT\FFTW\FFTWArray.cs" />
+    <Compile Include="FFT\FFTW\X86\FFTWFNativeMethods.cs" />
+    <Compile Include="FFT\FFTW\FFTWService86.cs" />
+    <Compile Include="FFT\FFTW\X86\FFTWNativeMethods.cs" />
+    <Compile Include="FFT\FFTW\InteropFFTWDirection.cs" />
+    <Compile Include="FFT\FFTW\InteropFFTWFlags.cs" />
+    <Compile Include="FFT\FFTW\InteropFFTWKind.cs" />
+    <Compile Include="FFT\IFFTService.cs" />
+    <Compile Include="Utils\ArrayUtils.cs" />
+    <Compile Include="Utils\FingerprintDescriptor.cs" />
+    <Compile Include="IFingerprintService.cs" />
+    <Compile Include="Configuration\FingerprintConfiguration.cs" />
+    <Compile Include="FingerprintService.cs" />
+    <Compile Include="Utils\IFingerprintDescriptor.cs" />
+    <Compile Include="Wavelets\NonStandardHaarWaveletDecomposition.cs" />
+    <Compile Include="Wavelets\HaarWaveletDecomposition.cs" />
+    <Compile Include="FFT\ISpectrumService.cs" />
+    <Compile Include="FFT\SpectrumService.cs" />
+    <Compile Include="Command\FingerprintCommand.cs" />
+    <Compile Include="Command\ISourceFrom.cs" />
+    <Compile Include="Wavelets\StandardHaarWaveletDecomposition.cs" />
+    <Compile Include="Wavelets\IntegralImage.cs" />
+    <Compile Include="Wavelets\IWaveletDecomposition.cs" />
+    <Compile Include="Command\IWithFingerprintConfiguration.cs" />
+    <Compile Include="Command\IFingerprintCommand.cs" />
+    <Compile Include="Builder\IFingerprintCommandBuilder.cs" />
+    <Compile Include="Builder\FingerprintCommandBuilder.cs" />
+    <Compile Include="LSH\ILocalitySensitiveHashingAlgorithm.cs" />
+    <Compile Include="LSH\LocalitySensitiveHashingAlgorithm.cs" />
+    <Compile Include="MinHash\CachedPermutations.cs" />
+    <Compile Include="MinHash\IMinHashService.cs" />
+    <Compile Include="Math\SimilarityUtility.cs" />
+    <Compile Include="MinHash\IPermutations.cs" />
+    <Compile Include="MinHash\LocalFilePermutations.cs" />
+    <Compile Include="MinHash\MinHashService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\CustomQueryConfiguration.cs" />
+    <Compile Include="Configuration\DefaultQueryConfiguration.cs" />
+    <Compile Include="Builder\QueryCommandBuilder.cs" />
+    <Compile Include="Command\QueryCommand.cs" />
+    <Compile Include="Command\IQueryCommand.cs" />
+    <Compile Include="Builder\IQueryCommandBuilder.cs" />
+    <Compile Include="Command\IQuerySource.cs" />
+    <Compile Include="Command\IWithQueryAndFingerprintConfiguration.cs" />
+    <Compile Include="Configuration\QueryConfiguration.cs" />
+    <Compile Include="IQueryFingerprintService.cs" />
+    <Compile Include="QueryFingerprintService.cs" />
+    <Compile Include="Query\QueryResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="x64\libfftw3-3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\libfftw3f-3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\libfftw3l-3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libfftw3-3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libfftw3f-3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libfftw3l-3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SoundFingerprinting.Audio.NAudio\SoundFingerprinting.Audio.NAudio.csproj">
+      <Project>{73a3fee8-13ee-4eeb-9db2-e52a30c8467a}</Project>
+      <Name>SoundFingerprinting.Audio.NAudio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundFingerprinting.Audio\SoundFingerprinting.Audio.csproj">
+      <Project>{0f94f031-1d0b-429a-a41d-956c1eae435b}</Project>
+      <Name>SoundFingerprinting.Audio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundFingerprinting.Infrastructure\SoundFingerprinting.Infrastructure.csproj">
+      <Project>{a265e08a-870f-406d-8751-4f6f6d69e91a}</Project>
+      <Name>SoundFingerprinting.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

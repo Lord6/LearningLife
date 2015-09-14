@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://www.gnu.org/licenses/gpl.html</licenseUrl>
+    <projectUrl>https://github.com/AddictedCS/soundfingerprinting</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Major changes in published modules. SoundFingerprinting project has been changed to represent a more granular approach on published modules (as well as project structures). Aside of mentioned structure major change, in terms of the functional improvements, additional query method is implemented to return time-sequence location from the discovered track. Its now possible to detect time location using QueryWithTimeSequenceInformation on both QueryService as well as QueryCommand objects. NAudio will no longer be published as a separate module, rather it will be the default audio service published with SoundFingerprinting libraries. Interfaces for query/fingerprint have changed as well, in order to not bother the user with too many query parameters passed during fingerprinting/querying. Previous interface definitions will no longer be supported.</releaseNotes>
+    <copyright>Copyright 2010, Ciumac Sergiu</copyright>
+    <tags>Audio Identification Fingerprinting Digital Signal Processing Music Recognition Data Mining Content Sound</tags>
+	<dependencies>
+		<dependency id="SoundFingerprinting.Audio.NAudio" />
+	</dependencies>
+  </metadata>
+  <files>
+		<file src="bin\Release\SoundFingerprinting.Audio.dll" target="lib\net35" />
+		<file src="bin\Release\SoundFingerprinting.Audio.dll" target="lib\net40" />
+		<file src="bin\Release\SoundFingerprinting.Audio.dll" target="lib\net45" />
+		<file src="bin\Release\SoundFingerprinting.Audio.NAudio.dll" target="lib\net35" />
+		<file src="bin\Release\SoundFingerprinting.Audio.NAudio.dll" target="lib\net40" />
+		<file src="bin\Release\SoundFingerprinting.Audio.NAudio.dll" target="lib\net45" />
+		<file src="bin\Release\SoundFingerprinting.Infrastructure.dll" target="lib\net35" />
+		<file src="bin\Release\SoundFingerprinting.Infrastructure.dll" target="lib\net40" />
+		<file src="bin\Release\SoundFingerprinting.Infrastructure.dll" target="lib\net45" />
+		<file src="..\Scripts\SoundFingerprintingPackage\*.ps1" target="tools\net35" />
+		<file src="..\Scripts\SoundFingerprintingPackage\*.ps1" target="tools\net40" />
+		<file src="..\Scripts\SoundFingerprintingPackage\*.ps1" target="tools\net45" />
+   </files>
+</package>
