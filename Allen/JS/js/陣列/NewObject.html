@@ -1,0 +1,30 @@
+<html>
+<body>
+<script>
+function student(SName,SID,SAge){
+this.name=SName;
+this.ID=SID;
+this.Age=SAge;
+this.display=Sdisplay;
+
+}
+function Sdisplay(){
+alert('sName='+this.name+', SID='+this.ID+',SAge='+this.Age);
+}
+students=new Array();
+i=0;
+students[i++]=new student("tom","01","23");
+students[i++]=new student("tina","02","22");
+for(i=0;i<students.length;i++){
+document.write("<br/>");
+document.writeln(students[i].name);
+document.writeln(students[i].ID);
+document.writeln(students[i].Age);
+document.write("<br/>");
+}
+
+</script>
+<input type="button" onclick="javascript:students[0].display()" value="student01"/>
+<input type="button" onclick="javascript:students[1].display()" value="student02"/>
+</body>
+</html>

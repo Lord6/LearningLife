@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta charset="big5" http-equiv="Refresh" content="5">
+</head>
+<body>
+<script>
+text1=new Array();
+i=0;
+text1[i++]="台南";
+text1[i++]="高雄";
+text1[i++]="彰化";
+text1[i++]="屏東";
+text2=new Array();
+i=0;
+text2[i++]="居住地";
+text2[i++]="工作地";
+text2[i++]="旅遊地";
+text2[i++]="哥哥打地地";
+document.write("<h3 align=center>");
+document.write(text2[Math.floor(Math.random()*text1.length)]+":"+text1[Math.floor(Math.random()*text1.length)]);
+document.write("</h3>");
+</script>
+<center>
+<img src="no.jpg" style="width:300px;height:300px;">
+</center>
+</body>
+</html>

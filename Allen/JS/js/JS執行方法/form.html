@@ -1,0 +1,28 @@
+<html>
+<body>
+<form name="theForm" action="" method="get">
+<input type="text" name="txt" value="default value"/>
+<input type="button" value="sendToStatus" onclick="window.status=document.theForm.txt.value"/>
+<input type="text"  value="default value" onchange="window.status=this.value"/>
+<br/>
+<br/>
+<input type="text" name="txt1" value="test" id="txt1"/>
+<input type="button" value="===>" onclick="this.form.txt2.value=this.form.txt1.value"/>
+<input type="text"  name="txt2" id="txt2" />
+<select name="list" onchange="alert('you choose'+options[this.selectedIndex].text)">
+	<option>1.book
+	<option>2.cook
+	<option>3.pen
+	
+</select>
+</form>
+<input type="button" value="===>" onclick="document.getElementById('txt2').value=document.getElementById('txt1').value"/>
+</br>
+<select name="list" onchange="alert('you choose'+options[this.selectedIndex].text)">
+	<option>1.book
+	<option>2.cook
+	<option>3.pen
+	
+</select>
+</body>
+</html>

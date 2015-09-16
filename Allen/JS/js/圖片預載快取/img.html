@@ -1,0 +1,20 @@
+
+<html>
+<head>
+<script>
+button_over = new Image()
+button_over.src = "yahoo.jpg"
+button_out = new Image()
+button_out.src = "no.jpg"
+</script>
+</head>
+<body>
+<a href="http://www.tw.yahoo.com" 
+onMouseOver="document.images['hover'].src=button_over.src"
+onMouseOut="document.images['hover'].src=button_out.src">
+go to yahoo
+</a>
+<img name="hover" src="hi.png" style="hieght:300px; width:300px;">
+
+</body>
+</html>

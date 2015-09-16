@@ -1,0 +1,31 @@
+<html>
+<body>
+<script>
+function talk(){
+alert('enter 10 times');
+for(i=0;i<10;i++)
+	alert((i+1)+'times');
+alert('10 times more');
+for(i=0;i<10;i++)
+	alert((i+1)+'times');
+alert('finish');
+}
+function check(){
+	answer=confirm("are u sure?");
+	if (answer){
+		location.href="http://tw.yahoo.com";
+	}
+}
+function inputIt(){
+	course=prompt("please input username");
+	if (course=="bss4515")
+		location.href="http://tw.yahoo.com";
+}
+</script>
+<a href="javascript:talk()">hit me</a>
+<!--<a href="javascript:check()">check it</a>-->
+<!--<a href="javascript:if (confirm('are u sure?')) location.href='http://www.tw.yahoo.com'">check it</a>-->
+<a href="http://www.tw.yahoo.com" onclick="return(confirm('are u sure?'))">check it</a>
+<a href="javascript:inputIt()">input it</a>
+</body>
+</html>
