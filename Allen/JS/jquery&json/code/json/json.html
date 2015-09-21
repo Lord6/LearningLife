@@ -1,0 +1,43 @@
+<html>
+<style>
+ #drawarea{
+	
+	width:300px;
+	height:300px;
+ }
+</style>
+<head>
+
+</head>
+<body>
+<input type="text" name="word" id="word" onkeyup="showMsg(this.value)"/>
+
+<div id="drawarea">
+
+</div>
+</body>
+</html>
+<script src="jquery/jquery-1.11.3.min.js"></script>
+<script>
+/*
+$("#btn").click(function(){
+	$("#drawarea").css("background-color","red");
+	$("#btn").val("success");
+});*/
+/*$("#btn").click(function(){
+  $("#drawarea").load("jquery1.html #accordion");
+});*/
+function showMsg(e) {
+
+
+$.post("json.php",{word:e},function(json){	
+   var data = $.parseJSON(json);
+$("#drawarea").html("Name: "+data["name"]+",</br>Tel: "+data["tel"]+",</br>sex: "+data["sex"]);
+					 
+				
+});
+   
+
+}
+
+</script>

@@ -1,0 +1,26 @@
+<html>
+<style>
+ #drawarea{
+	background-color:green;
+	width:300px;
+	height:300px;
+ }
+</style>
+<head>
+
+</head>
+<body>
+<input type="button" id="btn" value="changeBgd" />
+<div id="drawarea">
+
+</div>
+</body>
+</html>
+<script src="jquery/jquery-1.11.3.min.js"></script>
+<script>
+$("#btn").click(function(){
+	$("#drawarea").css("background-color","red");
+	$("#btn").val("success");
+});
+
+</script>

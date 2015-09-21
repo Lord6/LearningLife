@@ -1,0 +1,36 @@
+<html>
+<style>
+ #drawarea{
+	
+	width:300px;
+	height:300px;
+ }
+</style>
+<head>
+
+</head>
+<body>
+<input type="text" name="word" id="word" onkeyup="showMsg(this.value)"/>
+<input type="button" id="btn" value="changeBgd" />
+
+<div id="drawarea">
+
+</div>
+</body>
+</html>
+<script src="jquery/jquery-1.11.3.min.js"></script>
+<script>
+/*
+$("#btn").click(function(){
+	$("#drawarea").css("background-color","red");
+	$("#btn").val("success");
+});*/
+/*$("#btn").click(function(){
+  $("#drawarea").load("jquery1.html #accordion");
+});*/
+function showMsg(e) {
+$.post("echoValues.php",{word:e},function(word,status){$("#drawarea").html(word+"yourMsg:"+status);});
+
+}
+
+</script>
