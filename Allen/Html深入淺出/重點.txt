@@ -1,0 +1,22 @@
+HTML該注意重點
+1.#ID  www.xxxxx/#id  , <h1 id=xxxxx > <h1/>
+2.target=_blank 
+3.圖像大小設定雖可壓縮，但實際上還是下載整張圖。
+4.元件可有多個class , class =  
+< p class ="xxxx" >
+.xxxxx { -------------------> (selector)
+
+ color : red ;   
+}
+
+
+
+5. 自訂字體
+6. box Model
+7. 樣式表動態呈現 , 根據使用者裝置。
+8. css擬類型
+9. flow , how to do 浮動元件 , what is 浮動元件
+10.三種版面，表格式版面
+11.li display:inline(達到導覽功能) html5 多了header footer 讓html架構更明確
+12.跨欄跨列
+13.補充 用CSS達到變形
