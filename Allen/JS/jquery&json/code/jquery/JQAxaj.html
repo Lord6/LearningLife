@@ -25,9 +25,15 @@ $("#btn").click(function(){
 	$("#drawarea").css("background-color","red");
 	$("#btn").val("success");
 });*/
-/*$("#btn").click(function(){
-  $("#drawarea").load("jquery1.html #accordion");
-});*/
+$("#btn").click(function(){
+  $("#drawarea").load("jqueryui.html #accordion",function(respontxt, textStatus, XMLHttpRequest){
+  alert("you load jqury1.html content"); 
+  alert(textStatus);
+   alert(XMLHttpRequest);
+  });
+  
+});
+
 function showMsg(e) {
 $.post("echoValues.php",{word:e},function(word,status){$("#drawarea").html(word+"yourMsg:"+status);});
 

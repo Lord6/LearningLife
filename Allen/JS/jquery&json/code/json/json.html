@@ -19,23 +19,20 @@
 </html>
 <script src="jquery/jquery-1.11.3.min.js"></script>
 <script>
-/*
-$("#btn").click(function(){
-	$("#drawarea").css("background-color","red");
-	$("#btn").val("success");
-});*/
-/*$("#btn").click(function(){
-  $("#drawarea").load("jquery1.html #accordion");
-});*/
 function showMsg(e) {
 
 
-$.post("json.php",{word:e},function(json){	
-   var data = $.parseJSON(json);
-$("#drawarea").html("Name: "+data["name"]+",</br>Tel: "+data["tel"]+",</br>sex: "+data["sex"]);
-					 
-				
-});
+$.post("json.php",{word:e},function(json,textStatus){	
+   if(json!=""){
+	$("#drawarea").html("Name: "+json.name+",</br>Tel: "+json.tel+",</br>sex: "+json.sex);
+	
+	}
+	else{
+	
+	  $("#drawarea").html("");
+	
+	}
+},"json");
    
 
 }
