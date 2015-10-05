@@ -1,4 +1,11 @@
 <?php 
+mb_internal_encoding("utf-8");
+$txtfile="simpleOK.txt";
+$txtfile_size = filesize($txtfile);
+$txthandle = fopen($txtfile, "r");
+$txtcontent = fread($txthandle, $txtfile_size);
+$txtcontent =base64_encode($txtcontent);
+fclose($txthandle);
 $file ="pearmail.jpg";
 $file_size = filesize($file);
 $handle = fopen($file, "r");
@@ -15,8 +22,8 @@ $header = "From: ".$from_name." <bss4515@hotmail.com>\r\n";
 $header .= "Reply-To: ".$replyto."\r\n";
 $header .= "MIME-Version: 1.0\r\n";
 $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-$message="ssdsd";
-$subject="ssss";
+$message="test1";
+$subject="ggg";
 $mailto="huangwei4515@gmail.com";
 // message & attachment
 $nmessage = "--".$uid."\r\n";
@@ -28,6 +35,11 @@ $nmessage .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n
 $nmessage .= "Content-Transfer-Encoding: base64\r\n";
 $nmessage .= "Content-Disposition: attachment; filename=\"pearmail.jpg\"\r\n\r\n";
 $nmessage .= $content."\r\n\r\n";
+$nmessage .= "--".$uid."\r\n";
+$nmessage .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n";
+$nmessage .= "Content-Transfer-Encoding: base64\r\n";
+$nmessage .= "Content-Disposition: attachment; filename=\"simpleOK.txt\"\r\n\r\n";
+$nmessage .= $txtcontent."\r\n\r\n";
 $nmessage .= "--".$uid."--";
 
 if (mail($mailto, $subject, $nmessage, $header)) {
