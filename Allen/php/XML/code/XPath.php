@@ -4,14 +4,16 @@
 </head>
 <body>
 <div id="content">
-<h1>test</h1>
-<h1>test2</h1>
+<h1>fdsf</h1>
+<h1>fdgdfggg</h1>
 
 
 </div>
 
 <script>
-   var element = document.evaluate( 'count(//h1)' ,document, null, XPathResult.NUMBER_TYPE, null ).numberValue;
+//evaluate(xpathText,contextNode,namespaceURLMapper,resultType,result)
+//contextNode : Reference to the node in which the search will take place. The node can be the document or any element in the document.
+   var element = document.evaluate( 'count(//h1)' ,document.body, null, XPathResult.NUMBER_TYPE, null ).numberValue;
    alert(element);
 </script>
 
@@ -24,7 +26,10 @@
 $xml = simplexml_load_file("person.xml");
 
 $result = $xml->xpath("//name");
-
-print_r($result);
+foreach($result as $row){
+	
+	echo $row."\r";
+}
+//print_r($result);
 
 ?>
