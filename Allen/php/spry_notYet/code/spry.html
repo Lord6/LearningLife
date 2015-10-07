@@ -1,0 +1,75 @@
+<html xmlns:spry="http:tw.yahoo.com">
+<head>
+<style type="text/css">
+table,td,th{
+border:1px solid #006600;
+border-collapse:collapse;
+
+}
+td {padding:8px 12px;}
+.hover-class{color:#336600;
+background-color:#FFFFCC;
+}
+.select-class{color:#cc6600;
+background-color:#FFFFCC;
+}
+</style>
+
+<script src="Spry-master\Spry-master\includes_packed\xpath.js"></script>
+<script src="Spry-master\Spry-master\includes_packed\SpryData.js"></script>
+<script>
+var ds =new Spry.Data.XMLDataSet("person.xml","Persons/person",{useCache:false});
+</script>
+</head>
+<body>
+<div spry:region="ds">
+<table>
+	<tr>
+		<th>name</th>
+		<th>nature</th>
+		<th>skill</th>
+		<th>power</th>
+		<th>knowledge</th>
+		<th>row_id</th>
+		<th>rownumber</th>
+
+	</tr>
+	<!--<tr spry:repeat="ds" spry:test="'{name}'.search(/G/)!=-1" style="color:red;">-->
+	<tr spry:repeat="ds" spry:hover="hover-class" spry:select="select-class" spry:setrow="ds"> 
+		<!--<td spry:if="'{name}'.search(/G/)!=-1;" style="color:green;">{name}</td>
+		<td spry:if="'{name}'.search(/G/)==-1;" style="color:red;">{name}</td>-->
+		<td>{name}</td>
+		<td>{nature}</td>
+		<td>{skill}</td>
+		<td>{power}</td>
+		<td>{knowledge}</td>
+		<td>{ds_RowID}</td>
+		<td>{ds_RowNumber}</td>
+	</tr>
+</table>
+<br/>
+	<select spry:repeatchildren="ds" onchange="ds.setCurrentRowNumber(this.selectedIndex);">
+		<option>{name}</option>
+	</select>
+</div>
+
+<div spry:detailregion="ds">
+<table>
+	<tr>
+		<th>name</th>
+		<th>nature</th>
+		<th>skill</th>
+		<th>power</th>
+		<th>knowledge</th>
+	</tr>
+	<tr>
+		<td>{name}</td>
+		<td>{nature}</td>
+		<td>{skill}</td>
+		<td>{power}</td>
+		<td>{knowledge}</td>
+	</tr>
+</table>
+</div>
+</body>
+</html>

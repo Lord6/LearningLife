@@ -16,5 +16,5 @@ if ($word !== "") {
 	
 }
 echo $values ;
-echo "thx,ajax" ;
+
 ?>

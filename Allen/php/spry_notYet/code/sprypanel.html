@@ -1,0 +1,43 @@
+<html xmlns:spry="http:tw.yahoo.com">
+<head>
+<link href="Spry-master\Spry-master\widgets\tabbedpanels\SpryTabbedPanels.css" rel="stylesheet" type="text/css">
+<script src="Spry-master\Spry-master\widgets\tabbedpanels\SpryTabbedPanels.js"></script>
+<script src="Spry-master\Spry-master\includes_packed\xpath.js"></script>
+<script src="Spry-master\Spry-master\includes_packed\SpryData.js"></script>
+<script>
+var ds =new Spry.Data.XMLDataSet("person.xml","Persons/person");
+function Showmessage(text){
+	alert('output:'+text);
+
+
+}
+</script>
+</head>
+<body>
+<div spry:region="ds">
+	<select spry:repeatchildren="ds" onchange="ds.setCurrentRowNumber(this.selectedIndex);">
+		<option>{name}</option>
+	</select>
+</div>
+<br/>
+<div id="panel1" class="TabbedPanels">
+	<ul class="TabbedPanelsTabGroup">
+		<li class="TabbedPanelsTab" tabindex="0">name</li>
+		<li class="TabbedPanelsTab" tabindex="0">nature</li>
+		<li class="TabbedPanelsTab" tabindex="0">skill</li>
+		<li class="TabbedPanelsTab" tabindex="0">power</li>
+		<li class="TabbedPanelsTab" tabindex="0">knowledge</li>	
+	</ul>
+    <div class="TabbedPanelsContentGroup" spry:detailregion="ds">
+		<div class="TabbedPanelsContent">{name}</div>
+		<div class="TabbedPanelsContent">{nature}</div>
+		<div class="TabbedPanelsContent">{skill}</div>
+		<div class="TabbedPanelsContent">{power}</div>
+		<div class="TabbedPanelsContent">{knowledge}</div>
+	</div>
+</div>
+<script>
+ var panel5=new Spry.Widget.TabbedPanels("panel1");
+</script>
+</body>
+</html>

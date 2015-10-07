@@ -26,16 +26,18 @@ $("#btn").click(function(){
 	$("#btn").val("success");
 });*/
 $("#btn").click(function(){
-  $("#drawarea").load("jqueryui.html #accordion",function(respontxt, textStatus, XMLHttpRequest){
+  $("#drawarea").load("jqueryui.html #accordion",function(respontxt){
+  
+  test= respontxt;
+  
   alert("you load jqury1.html content"); 
-  alert(textStatus);
-   alert(XMLHttpRequest);
+ 
   });
   
 });
 
-function showMsg(e) {
-$.post("echoValues.php",{word:e},function(word,status){$("#drawarea").html(word+"yourMsg:"+status);});
+function showMsg(value) {
+$.post("echoValues.php",{word:value},function(word,status){$("#drawarea").html(word+"yourMsg:"+status);});
 
 }
 
