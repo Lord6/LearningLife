@@ -1,5 +1,5 @@
 1. review php ,JS 
 2. report JSON , JQuery , Js in spry
-3. read serverlet & JSP
+3. read s00erverlet & JSP
 
 4. do your website

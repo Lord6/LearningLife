@@ -7,3 +7,6 @@
 6. Jqury AJAX不要用控制項驅動
 7. $.post (?)
 8. JSON實例補充
+
+9.git server  
+10. amazon buy space(web server, linux)
